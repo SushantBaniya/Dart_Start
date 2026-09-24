@@ -14,6 +14,7 @@ class Grade_Management{
   }
   
   void grade(){
+    averageGrade = 0.0; // Reset average grade for each student
     for(var subject in subjects){
       stdout.write('Enter grade for $subject: ');
       double grade = double.parse(stdin.readLineSync()!);
@@ -22,8 +23,9 @@ class Grade_Management{
       } else {
         print('$studentName has passed in $subject with a grade of $grade.');
       }
-      averageGrade = (averageGrade + grade) / subjects.length;
+      averageGrade = (averageGrade + grade);
     }
+    averageGrade = (averageGrade / subjects.length);
     print('$studentName has an average grade of $averageGrade.');
   }
 }
